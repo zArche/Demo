@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ v2 ]
   pull_request:
-    branches: [ master ]
+    branches: [ v2 ]
 
 jobs:
   build:
@@ -23,12 +23,5 @@ jobs:
     - name: Upload to artifact
       uses: actions/upload-artifact@v1
       with:
-        name: app-release-unsigned
-        path: app/build/outputs/apk/release
-
-    - name: Upload to release
-      uses: xresloader/upload-to-github-release@v1
-      with:
-        file: "./app/build/outputs/apk/release/app-release-unsigned.apk"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: app-debug
+        path: app/build/outputs/apk/debug
