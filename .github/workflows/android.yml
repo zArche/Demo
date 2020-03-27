@@ -20,12 +20,6 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Upload to artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: app-release-unsigned
-        path: app/build/outputs/apk/release
-
     - name: Upload to release
       uses: xresloader/upload-to-github-release@v1
       with:
